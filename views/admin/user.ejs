@@ -1,0 +1,30 @@
+<%- include ../header %>
+<link rel="stylesheet" href="/css/admin/user.css"/>
+<div class="ui-warp">
+    <%- include left %>
+    <div class="ui-right">
+        <div class="ui-box">
+            <h3 class="ui-title-h3"><%= title%></h3>
+
+            <div class="ui-content">
+                <ul class="user-box">
+                    <li><label>用户名：</label><%= user.name %></li>
+                    <li><label>头&nbsp;&nbsp;&nbsp;像：</label><span id="avatar" class="avatar"><img src="<%= user.head %>"
+                                                                                                  alt="上传新头像"
+                                                                                                  width="70"
+                                                                                                  height="70"/><i
+                                    id="upload">上传头像</i></span></li>
+                    <li><label>邮&nbsp;&nbsp;&nbsp;箱：</label><input id="email" type="text" value="<%= user.email %>"
+                                                                   class="text"/>
+                    </li>
+                    <li><label>原密码：</label><input type="password" id="oldpwd" class="text"/></li>
+                    <li><label>新密码：</label><input type="password" id="newpwd" class="text"/></li>
+                    <li><label>确认密码：</label><input type="password" id="newpwd-pre" class="text"/></li>
+                </ul>
+            </div>
+        </div>
+        <div><a href="javascript:;" id="sub-btn" class="btn">修改资料</a></div>
+    </div>
+</div>
+<script src="/js/admin/user.js"></script>
+<%- include ../footer %>

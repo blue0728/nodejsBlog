@@ -1,0 +1,39 @@
+<%- include ../header %>
+<link rel="stylesheet" href="/css/admin/list.css"/>
+<div class="ui-warp">
+    <%- include left %>
+    <div class="ui-right">
+        <div class="ui-box">
+            <h3 class="ui-title-h3"><%= title%></h3>
+
+            <div class="ui-content">
+                <% if(posts != ''){%>
+                <ul class="list" id="list">
+                    <% posts.forEach(function (post, index){ %>
+                    <li>
+                        <h2>
+                           <span class="fr operate">
+                                <em class="gray time">发表时间：<%= post.time.minute %></em>
+                               <% if( post.isShow == true ){%>
+                               <a href="javascript:;" data-id="<%= post._id %>" class="green dele">删除</a>
+                               <% }else{%>
+                               <a href="javascript:;" data-id="<%= post._id %>" class="green undo">撤销删除</a>
+                               <%}%>
+                               <a href="/user/edit/<%= post._id %>" class="green">编辑</a>
+                            </span>
+                            <a class="blue" href="/p/<%= post._id %>" target="_blank"><%= post.title %></a>
+                        </h2>
+                        <div class="summary"><%- post.summary %></div>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } else{%>
+                暂无文章
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <%- include ../page %>
+</div>
+<script src="/js/admin/dele.js"></script>
+<%- include ../footer %>

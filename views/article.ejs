@@ -1,0 +1,13 @@
+<%- include header %>
+<link rel="stylesheet" href="/css/article.css"/>
+<% if (post != null){ %>
+<div id="article-box">
+    <h2 class="blue title"><%= post.title %></h2>
+    <div class="info gray"><span>作者：</span><a href="/user/<%= post.name %>" target="_blank" class="green"><%= post.name %></a>&nbsp;&nbsp;<span>时间：</span><%= post.time.minute %></div>
+    <div class="markdown-body"><%- post.post %></div>
+</div>
+<%- include comment.ejs %>
+<% }else{ %>
+文章不存在
+<% } %>
+<%- include footer %>

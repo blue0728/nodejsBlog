@@ -1,0 +1,27 @@
+<%- include ../header %>
+<link rel="stylesheet" href="/css/admin/post.css"/>
+<div class="ui-warp">
+    <%- include left %>
+    <div class="ui-right">
+        <% if(post != null){ %>
+        <div class="ui-box">
+            <h3 class="ui-title-h3">文章标题</h3>
+            <div class="ui-content"><input class="text" value="<%= post.title %>" id="title" type="text" name="title"/></div>
+        </div>
+        <div class="ui-box">
+            <h3 class="ui-title-h3">文章正文</h3>
+            <div class="ui-content"><textarea class="post" placeholder="编辑器加载中..." id="post" name="post" rows="20" cols="100"><%= post.post %></textarea></div>
+        </div>
+        <% if(post._id){ %>
+        <a href="javascript:;" class="btn" id="sub-btn" data-id="<%= post._id %>"/>修改文章</a>
+        <% } else{ %>
+        <a href="javascript:;" class="btn" id="sub-btn"/>发表文章</a>
+        <% } %>
+        <% }else{ %>
+        文章不存在
+        <% } %>
+
+    </div>
+</div>
+<script src="/js/admin/post.js"></script>
+<%- include ../footer %>

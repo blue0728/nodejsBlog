@@ -1,0 +1,10 @@
+#article-box h2.title{font-size: 18px;}
+#article-box .info{line-height: 30px;}
+#article-box .content{}
+.comment_li{padding-bottom: 15px;  border-bottom: 1px dashed #ddd;  margin-bottom: 15px;}
+.comment_text{border: 0;background: none;box-shadow: none;}
+.comment_li .face{margin-right: 15px;}
+.comment_li .face img{border-radius: 3px;}
+.com_content{font-size: 14px;margin-left: 45px;}
+.reply-box{display: none;}
+.reply{margin-top: 15px;padding: 0 15px;border-top:none; }

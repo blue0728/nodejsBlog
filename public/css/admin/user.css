@@ -1,0 +1,18 @@
+.user-box li{margin: 5px 0;font-size: 14px;}
+.user-box li input.text{width: 200px;}
+.user-box li label{vertical-align: top;width: 80px;display: inline-block;}
+.user-box li .avatar{background: #fff;border: 1px solid #ddd;padding: 5px; display: inline-block; width: 70px;height: 70px;}
+.user-box li span{position: relative;}
+.user-box li span i{cursor: pointer; width: 100%;position: absolute; left: 0;bottom: 0; height: 20px;background: rgba(0, 0, 0,.5);font-style: normal;font-size: 12px;color: #fff;line-height: 20px;text-align: center;display: none;}
+/*图片上传插件样式*/
+.uploader{position: relative; margin-bottom: 5px;}
+.uploader-button{display: block;width: 119px;height: 27px;text-indent:9999px;background: url(/images/qq-upload-button.png) no-repeat 0 0; cursor: pointer;overflow: hidden; }
+.uploader-button-hover{background-position:0 -27px;}
+.uploader-button span.txt{display: none;}
+/*个人设置头像*/
+.avatar_demo_pic{width:300px; height:300px; border:1px solid #ccc; background:#f4f4f4 url(/images/uploader_avatar.png) 0 0 no-repeat; display:block; margin-bottom: 8px;}
+.avatar_form .uploader{width: 302px;}
+.avatar_form .uploader-button{margin:0 auto;}
+.avatar_form .r{padding-left: 30px; vertical-align: top;}
+.avatar_tip{margin-bottom: 20px;}
+.avatar_preview{width: 150px; height: 150px; margin-left: 35px; overflow: hidden; background-color: #f4f4f4;}

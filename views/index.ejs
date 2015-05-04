@@ -1,0 +1,30 @@
+<%- include header %>
+<link rel="stylesheet" href="/css/index.css"/>
+<% if(posts.length > 0){%>
+<div id="list">
+    <ul class="posts">
+        <% posts.forEach(function (post, index){ %>
+        <li>
+            <h2><a class="blue" href="/p/<%= post._id %>" target="_blank"><%= post.title %></a>
+                <% if(user && user.name == post.name) { %>
+                <span class="operate"><a href="javascript:;" class="dele green" data-id="<%= post._id %>">删除</a><a
+                            href="/user/edit/<%= post._id %>" class="green">编辑</a></span>
+                <% } %>
+            </h2>
+
+            <div class="info gray"><span>作者：</span><a href="/post/<%= post.name %>" target="_blank"
+                                                      class="green"><%= post.name %></a>&nbsp;&nbsp;<span>时间：</span><%= post.time.minute %>
+            </div>
+            <div class="summary"><%- post.summary %></div>
+        </li>
+        <% }) %>
+    </ul>
+</div>
+<%- include page %>
+<%} else{%>
+没有文章
+<%}%>
+<% if(user && user.name) { %>
+<script src="/js/dele.js"></script>
+<% } %>
+<%- include footer %>

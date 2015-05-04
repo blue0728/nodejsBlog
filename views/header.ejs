@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/global.css"/>
+    <link rel="stylesheet" href="/css/markdown.css"/>
+    <script src="/js/lib/lib.js"></script>
+    <script src="/js/global.js"></script>
+</head>
+<body>
+<div id="header">
+    <ul class="cle">
+        <li><a href="/" title="主页">主页</a></li>
+        <li class="search fr">
+            <input id="keyword" name="q" class="text" type="text"/><input type="submit" id="search_btn" class="search_btn" value="搜索"/>
+        </li>
+        <% if (user) { %>
+        <li class="fr"><a title="退出" href="/logout">退出</a></li>
+        <li class="fr"><a title="用户中心" href="/user" class="blue"><%= user.name %></a></li>
+        <% } else { %>
+        <li class="fr"><a title="注册" href="/reg">注册</a></li>
+        <li class="fr"><a title="登录" href="/login">登录</a></li>
+        <% } %>
+    </ul>
+</div>
+<div id="wrapper">

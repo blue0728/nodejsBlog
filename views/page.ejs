@@ -1,0 +1,55 @@
+<% if( pages != null && pages.total > 1){ %>
+<div class="pagenav" id="pagenav">
+        <% if(pages.current == 1){ %>
+            <span class="currentStep">首页</span>
+        <% } else{ %>
+            <% if(pages.current - 1 == 1){%>
+                <a title="首页" href="?p=1">首页</a>
+            <% } else{%>
+                <a title="首页" href="?p=1">首页</a>
+                <a title="上一页" href="?p=<%= pages.current - 1 %>">上一页</a>
+            <%}%>
+        <% } %>
+
+
+        <% if(pages.total <= pages.navnum + 1 ){%>
+            <%for(var i = 2; i <= pages.total - 1; i++){ if(pages.current == i){ %>
+                <span class="currentStep"><%= i %></span>
+            <% }else { %>
+                <a title="<%= i %>" href="?p=<%= i %>"><%= i %></a>
+            <% }}%>
+        <% } else { %>
+           <% if(pages.current < pages.navnum){%>
+                <%for(var i = 2; i <= pages.total - 1; i++){ if(pages.current == i){ %>
+                    <span class="currentStep"><%= i %></span>
+                <% }else { %>
+                    <a title="<%= i %>" href="?p=<%= i %>"><%= i %></a>
+                <% }}%>
+           <%} else if(pages.current > (pages.total-pages.navnum)){%>
+                <%for(var i = pages.total - pages.navnum + 1; i < pages.total; i++){ if(pages.current == i){ %>
+                    <span class="currentStep"><%= i %></span>
+                <% }else { %>
+                    <a title="<%= i %>" href="?p=<%= i %>"><%= i %></a>
+                <% }}%>
+           <% } else{%>
+                <%var t = Math.floor(pages.navnum/2); for(var i = pages.current - t; i < pages.current+(pages.navnum-t); i++){ if(pages.current == i){ %>
+                    <span class="currentStep"><%= i %></span>
+                <% }else { %>
+                <a title="<%= i %>" href="?p=<%= i %>"><%= i %></a>
+                <% }}%>
+           <% } %>
+        <% } %>
+
+
+        <% if(pages.current == pages.total){ %>
+            <span class="currentStep">末页</span>
+        <% }else { %>
+            <% if(pages.current + 1 == pages.total){%>
+                <a title="末页" href="?p=<%= pages.total %>">末页</a>
+            <% } else{%>
+                <a title="下一页" href="?p=<%= pages.current + 1 %>">下一页</a>
+                <a title="末页" href="?p=<%= pages.total %>">末页</a>
+            <%}%>
+        <% } %>
+</div>
+<% } %>

@@ -1,0 +1,8 @@
+<%- include header %>
+<h3>待抓取的文章链接：</h3>
+<ul>
+<% posts.forEach(function (post, index){%>
+    <li><a href="<%= post%>"><%= post%></a></li>
+<%})%>
+</ul>
+<%- include footer %>

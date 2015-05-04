@@ -1,0 +1,5 @@
+.list{line-height: 25px;}
+.list li{padding-bottom: 15px;border-bottom: 1px dashed #ddd;margin-bottom: 15px;}
+.list li h2{position: relative;}
+.list span.operate{font-size: 12px;font-weight: normal;}
+.list span.operate a{margin: 0 5px}

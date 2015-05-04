@@ -1,0 +1,6 @@
+#list li{border-bottom: 1px dashed #ddd;padding-bottom: 20px;margin-bottom: 20px;}
+#list h2 a.green{font-weight: normal;}
+#list .operate{font-size: 12px;padding-left: 50px;}
+#list .operate a{margin: 0 5px}
+#list .info{line-height: 30px;}
+#list .summary{line-height: 25px;}
