@@ -60,7 +60,7 @@ module.exports = function (app) {
         });
 
     });
-    /*裁剪头像*/
+    /*裁剪头像 需安装imagemagick*/
     app.post('/savePic', function (req, res) {
         var fileName = req.body.filename,
             x1 = req.body.x1, //左上角横坐标
@@ -131,7 +131,7 @@ module.exports = function (app) {
 
             imageMagick(files.file.path).resize(800, 600, '>').autoOrient().write(newPath, function (err) {  //自动裁剪为300
                 if (err) {
-                    return res.json({status: 'error', msg: err.toString()});
+                    return res.json({status: 'error', msg: err});
                 }
                 fs.unlink(files.file.path);                                         //删除临时文件
                 return res.json({
@@ -143,6 +143,60 @@ module.exports = function (app) {
                 });
             });
         });
+
+    });
+
+
+    /*上传图片form模式*/
+    app.post('/upPic', function (req, res) {
+        var form = new formidable.IncomingForm();
+
+        form.uploadDir = picUpload + pathTemp;
+        form.maxFieldsSize = 2 * 1024 * 1024;
+        form.encoding = 'utf-8';
+
+        form.parse(req, function (err, fields, files) {
+            if (err) {
+                return res.json({status: 'error', msg: err.toString()});
+            }
+            var extName = '';  //后缀名
+
+            switch (files.file.type) {
+                case 'image/pjpeg':
+                    extName = 'jpg';
+                    break;
+                case 'image/jpeg':
+                    extName = 'jpg';
+                    break;
+                case 'image/png':
+                    extName = 'png';
+                    break;
+                case 'image/x-png':
+                    extName = 'png';
+                    break;
+            }
+
+            if (extName.length == 0) {
+                return res.json({status: 'error', msg: '只支持png和jpg格式图片'});
+            }
+
+            //生成密码 MD5 加密值
+            var md5 = crypto.createHash('md5'),
+                name = md5.update(req.session.user.name).digest('hex');
+
+            var avatarName = name + (new Date()).getTime() + '.' + extName;
+
+            var newPath = picUpload + pathUploadImg + avatarName;
+
+            fs.renameSync(files.file.path, newPath);  //重命名
+
+            return res.json({
+                status: 'success',
+                msg: '上传成功',
+                path: pathUploadImg + avatarName,
+                filename: avatarName
+            });
+        })
 
     });
 };

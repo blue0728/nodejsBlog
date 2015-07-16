@@ -7,6 +7,7 @@ require.config({
     urlArgs: 'v=20150407',
     /*模块路径*/
     baseUrl: '/js/modules/', //你大爷
+    waitSeconds: 2000,
     paths: {
         'markdown': 'markdown/editor',
         'marked': 'markdown/marked',
@@ -14,7 +15,8 @@ require.config({
         'jcrop': 'jcrop/jcrop',
         'tip': 'popup/tip',
         'dialog': 'dialog/dialog',
-        'datepicker': 'datepicker/datepicker'
+        'datepicker': 'datepicker/datepicker',
+        'webuploader': 'uploadpic/webuploader'
     },
     map: {
         '*': {

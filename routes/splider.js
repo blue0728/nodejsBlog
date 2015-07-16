@@ -37,7 +37,7 @@ module.exports = function (app) {
                     posts: urlList
                 });
 
-                return;
+                //return;
 
                 var m = 0;
                 var timer = setInterval(function () {
@@ -65,8 +65,6 @@ module.exports = function (app) {
                                 _title = posts.title,
                                 _post = posts.post.replace(/&nbsp;/ig, ''),
                                 _summary = removeHTMLTag(marked(_post)).substr(0, 200);
-
-                            console.log(_post)
 
                             var post = new Post(currentUser, _title, _post, _summary);
 
