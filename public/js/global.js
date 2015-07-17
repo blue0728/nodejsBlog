@@ -16,7 +16,8 @@ require.config({
         'tip': 'popup/tip',
         'dialog': 'dialog/dialog',
         'datepicker': 'datepicker/datepicker',
-        'webuploader': 'uploadpic/webuploader'
+        'webuploader': 'uploadpic/webuploader',
+        'uploadpic': 'uploadpic/uploadpic'
     },
     map: {
         '*': {

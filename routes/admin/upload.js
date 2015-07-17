@@ -161,7 +161,8 @@ module.exports = function (app) {
             }
             var extName = '';  //后缀名
 
-            switch (files.file.type) {
+
+            switch (fields.type) {
                 case 'image/pjpeg':
                     extName = 'jpg';
                     break;
@@ -179,6 +180,8 @@ module.exports = function (app) {
             if (extName.length == 0) {
                 return res.json({status: 'error', msg: '只支持png和jpg格式图片'});
             }
+
+
 
             //生成密码 MD5 加密值
             var md5 = crypto.createHash('md5'),

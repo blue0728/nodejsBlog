@@ -16,6 +16,7 @@
             <input id="keyword" name="q" class="text" type="text"/><input type="submit" id="search_btn" class="search_btn" value="搜索"/>
         </li>
         <% if (user) { %>
+        <li class="fr"><a title="上传图片" href="/upload">上传图片</a></li>
         <li class="fr"><a title="退出" href="/logout">退出</a></li>
         <li class="fr"><a title="用户中心" href="/user" class="blue"><%= user.name %></a></li>
         <% } else { %>

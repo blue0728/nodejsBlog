@@ -4,6 +4,12 @@
 
 module.exports = function (app) {
     app.get('/upload', function (req,res) {
-        res.render('upload',{user: req.session.user});
+        if (!req.session.user) {
+            return res.redirect('/login');
+        }
+        res.render('upload', {
+            title: 'Í¼Æ¬ÉÏ´«',
+            user: req.session.user
+        });
     })
 }
